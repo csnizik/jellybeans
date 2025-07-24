@@ -1,15 +1,15 @@
 _core:
   default_config_hash: D3MrIV1tnDV3ROR-UCW3zqbrPKLgNaqCuR5TY0LqEb4
+favicon:
+  use_default: true
 features:
-  node_user_picture: true
   comment_user_picture: true
   comment_user_verification: true
   favicon: true
+  node_user_picture: true
 logo:
   use_default: true
-favicon:
-  use_default: true
-cdn_provider: none
+cdn_provider: custom
 cdn_custom_img: 'https://cdn.jsdelivr.net/npm/@uswds/uswds@3.12.0/dist/img'
 cdn_custom_css: 'https://cdn.jsdelivr.net/npm/@uswds/uswds@3.12.0/dist/css/uswds.min.css'
 cdn_custom_js: 'https://cdn.jsdelivr.net/npm/@uswds/uswds@3.12.0/dist/js/uswds.js'
@@ -32,20 +32,22 @@ uswds_contact_center: 'Agency Contact Center'
 uswds_email: info@agency.gov
 uswds_phone: '1234567890'
 uswds_facebook: 'https://www.facebook.com/'
-uswds_instagram: 'https://www.instagram.com/'
-uswds_linkedin: 'https://www.linkedin.com/'
 uswds_twitter: 'https://twitter.com/'
 uswds_youtube: 'https://www.youtube.com/'
+uswds_instagram: 'https://www.instagram.com/'
+uswds_linkedin: 'https://www.linkedin.com/'
 uswds_rss: /rss.xml
 sign_up_block_display: true
 sign_up_block_url: /
 sign_up_block_header: 'Sign up'
 sign_up_block_label: 'Your email address'
-sign_up_block_button_label: 'Sign up'
+sign_up_block_button_label: 'Your email address'
 uswds_menu_bypass:
   primary_menu: false
   secondary_menu: false
   sidebar_first: false
   sidebar_second: false
   footer_primary: false
-  footer_secondary: false
+subtheme_folder: themes/custom
+subtheme_name: 'UI Suite USWDS subtheme'
+subtheme_machine_name: ui_suite_uswds_subtheme
