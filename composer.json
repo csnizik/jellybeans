@@ -25,7 +25,11 @@
         "drupal/devel": "^5.4",
         "drupal/pathauto": "^1.13",
         "drupal/token": "^1.15",
+        "drupal/ui_examples": "^1.0",
+        "drupal/ui_skins": "^1.1@alpha",
         "drupal/ui_suite_uswds": "^4.0",
+        "drupal/ui_suite_uswds_extras": "^4.0",
+        "drupal/ui_suite_uswds_paragraphs": "^4.0",
         "drush/drush": "^13.6"
     },
     "conflict": {
