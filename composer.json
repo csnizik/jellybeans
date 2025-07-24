@@ -25,12 +25,13 @@
         "drupal/devel": "^5.4",
         "drupal/pathauto": "^1.13",
         "drupal/token": "^1.15",
+        "drupal/ui_suite_uswds": "^4.0",
         "drush/drush": "^13.6"
     },
     "conflict": {
         "drupal/drupal": "*"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
         "allow-plugins": {
