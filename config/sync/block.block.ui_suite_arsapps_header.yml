@@ -1,0 +1,59 @@
+uuid: de959ff6-4300-476c-8dae-0e4396b76ddb
+langcode: en
+status: false
+dependencies:
+  module:
+    - ui_patterns
+    - ui_patterns_blocks
+  theme:
+    - ui_suite_arsapps
+    - ui_suite_uswds
+id: ui_suite_arsapps_header
+theme: ui_suite_arsapps
+region: header_top
+weight: 0
+provider: null
+plugin: 'ui_patterns:ui_suite_uswds:header'
+settings:
+  id: 'ui_patterns:ui_suite_uswds:header'
+  label: Header
+  label_display: '0'
+  provider: ui_patterns_blocks
+  ui_patterns:
+    component_id: 'ui_suite_uswds:header'
+    variant_id:
+      source_id: select
+      source:
+        value: extended
+    props:
+      attributes:
+        source_id: attributes
+        source:
+          value: ''
+    slots:
+      top:
+        sources:
+          -
+            source_id: component
+            source:
+              component:
+                component_id: 'ui_suite_uswds:logo'
+                variant_id: null
+                props:
+                  attributes:
+                    source_id: attributes
+                    source:
+                      value: ''
+                  link_attributes:
+                    source_id: attributes
+                    source:
+                      value: ''
+                  site_logo:
+                    source_id: textfield
+                    source:
+                      value: web/sites/default/files/images/logo.png
+                slots:
+                  content: {  }
+            _weight: '0'
+      nav: {  }
+visibility: {  }

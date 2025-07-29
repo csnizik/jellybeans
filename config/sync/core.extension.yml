@@ -49,9 +49,13 @@ module:
   token: 0
   toolbar: 0
   ui_examples: 0
+  ui_examples_defaults: 0
   ui_icons: 0
   ui_icons_patterns: 0
   ui_patterns: 0
+  ui_patterns_blocks: 0
+  ui_patterns_layouts: 0
+  ui_patterns_library: 0
   ui_skins: 0
   ui_styles: 0
   update: 0
@@ -65,4 +69,5 @@ theme:
   claro: 0
   stable9: 0
   ui_suite_uswds: 0
+  ui_suite_arsapps: 0
 profile: standard

@@ -1,0 +1,20 @@
+uuid: 0ab52d0e-a7bb-4dce-9082-f21cc7c7e77b
+langcode: en
+status: true
+dependencies:
+  theme:
+    - ui_suite_arsapps
+_core:
+  default_config_hash: h6w6CKg7oHDSrmo79x-7UEDR9ZMbR_FCyZh_RfGCLbU
+id: ui_suite_arsapps_page_title
+theme: ui_suite_arsapps
+region: content
+weight: 0
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }
