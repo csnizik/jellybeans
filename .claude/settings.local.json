@@ -5,7 +5,14 @@
       "Bash(find:*)",
       "Bash(npm install:*)",
       "Bash(npm run build:*)",
-      "Bash(drush cache:rebuild:*)"
+      "Bash(drush cache:rebuild:*)",
+      "Bash(grep:*)",
+      "Bash(drush sql:query:*)",
+      "Bash(drush path:list:*)",
+      "Bash(drush entity:show:*)",
+      "Bash(drush config:get:*)",
+      "Bash(drush url:*)",
+      "Bash(drush status:*)"
     ],
     "deny": []
   }
