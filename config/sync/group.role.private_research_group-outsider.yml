@@ -1,0 +1,15 @@
+uuid: 4fe016e5-fdfe-4a98-8914-2766e87845af
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.private_research_group
+    - user.role.authenticated
+id: private_research_group-outsider
+label: Outsider
+weight: -101
+admin: false
+scope: outsider
+global_role: authenticated
+group_type: private_research_group
+permissions: {  }

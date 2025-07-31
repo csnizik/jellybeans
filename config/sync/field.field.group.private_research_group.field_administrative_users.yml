@@ -1,0 +1,29 @@
+uuid: 7c38d6c2-6d72-4c70-a2fe-b9727246bede
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_administrative_users
+    - group.type.private_research_group
+id: group.private_research_group.field_administrative_users
+field_name: field_administrative_users
+entity_type: group
+bundle: private_research_group
+label: 'Administrative user(s)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    filter:
+      type: _none
+    include_anonymous: false
+field_type: entity_reference

@@ -1,0 +1,19 @@
+uuid: f18d7664-45bb-4b2d-b8d1-10e56e88dbcb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_contact_email
+    - group.type.hybrid_research_group
+id: group.hybrid_research_group.field_contact_email
+field_name: field_contact_email
+entity_type: group
+bundle: hybrid_research_group
+label: 'Contact email'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

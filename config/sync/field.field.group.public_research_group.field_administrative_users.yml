@@ -1,0 +1,29 @@
+uuid: 5066a384-174c-4cbe-9b5e-4f2996a690f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_administrative_users
+    - group.type.public_research_group
+id: group.public_research_group.field_administrative_users
+field_name: field_administrative_users
+entity_type: group
+bundle: public_research_group
+label: 'Administrative user(s)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    filter:
+      type: _none
+    include_anonymous: false
+field_type: entity_reference

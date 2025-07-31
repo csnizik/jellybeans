@@ -1,0 +1,12 @@
+uuid: 4f39d135-fa8c-4535-896e-402d10f72c09
+langcode: en
+status: true
+dependencies: {  }
+id: private_research_group
+label: 'Private Research Group'
+description: 'Secure research groups for proprietary, pre-publication, or sensitive agricultural research projects. Suitable for industry partnerships, patent-pending research, preliminary findings, internal peer review, and projects under non-disclosure agreements. All content is restricted to group members only. '
+new_revision: true
+creator_membership: true
+creator_wizard: true
+creator_roles:
+  - private_research_group-admin

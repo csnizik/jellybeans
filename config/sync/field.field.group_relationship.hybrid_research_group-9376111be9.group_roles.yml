@@ -1,0 +1,22 @@
+uuid: 09d102c5-e225-4172-ae34-96409fdb703e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group_relationship.group_roles
+    - group.relationship_type.hybrid_research_group-9376111be9
+id: group_relationship.hybrid_research_group-9376111be9.group_roles
+field_name: group_roles
+entity_type: group_relationship
+bundle: hybrid_research_group-9376111be9
+label: Roles
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'group_type:group_role'
+  handler_settings:
+    group_type_id: hybrid_research_group
+field_type: entity_reference

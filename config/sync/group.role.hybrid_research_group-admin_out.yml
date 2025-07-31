@@ -1,0 +1,15 @@
+uuid: b93f10ad-a37a-4b50-a15b-f02e27fa2297
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.hybrid_research_group
+    - user.role.administrator
+id: hybrid_research_group-admin_out
+label: Administrator
+weight: 101
+admin: true
+scope: outsider
+global_role: administrator
+group_type: hybrid_research_group
+permissions: {  }

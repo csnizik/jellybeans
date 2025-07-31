@@ -1,0 +1,9 @@
+uuid: feee118e-eecb-4495-9f7d-863738302f10
+langcode: en
+status: true
+dependencies: {  }
+name: 'Research Areas'
+vid: research_areas
+description: 'Domains/topics assigned to a research group'
+weight: 0
+new_revision: false

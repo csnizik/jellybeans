@@ -1,0 +1,23 @@
+uuid: 775fb7eb-fc82-4ccb-a39b-112feb1d4061
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_external_links_public
+    - group.type.hybrid_research_group
+  module:
+    - link
+id: group.hybrid_research_group.field_external_links_public
+field_name: field_external_links_public
+entity_type: group
+bundle: hybrid_research_group
+label: 'External links (public)'
+description: 'Use for resources that are freely available to the public.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

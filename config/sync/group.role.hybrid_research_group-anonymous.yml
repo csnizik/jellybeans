@@ -1,0 +1,16 @@
+uuid: a5e7a5e8-1a5a-44be-ad8c-4afbee9c63e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.hybrid_research_group
+    - user.role.anonymous
+id: hybrid_research_group-anonymous
+label: Anonymous
+weight: -102
+admin: false
+scope: outsider
+global_role: anonymous
+group_type: hybrid_research_group
+permissions:
+  - 'view group'

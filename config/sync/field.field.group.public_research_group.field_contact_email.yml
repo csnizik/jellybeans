@@ -1,0 +1,19 @@
+uuid: 6a3f42d9-b703-48d2-bd80-146d4f2370ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_contact_email
+    - group.type.public_research_group
+id: group.public_research_group.field_contact_email
+field_name: field_contact_email
+entity_type: group
+bundle: public_research_group
+label: 'Contact email'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

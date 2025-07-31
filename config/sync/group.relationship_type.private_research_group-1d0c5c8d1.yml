@@ -1,0 +1,17 @@
+uuid: fe8adecd-c4b5-4442-929d-80453a60d4ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.private_research_group
+    - node.type.article
+  module:
+    - gnode
+    - node
+id: private_research_group-1d0c5c8d1
+group_type: private_research_group
+content_plugin: 'group_node:article'
+plugin_config:
+  group_cardinality: 1
+  entity_cardinality: 1
+  use_creation_wizard: false

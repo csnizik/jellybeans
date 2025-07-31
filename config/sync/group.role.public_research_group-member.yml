@@ -1,0 +1,21 @@
+uuid: c75f9d73-49a3-415b-8d26-c227cf71ee8b
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.public_research_group
+    - user.role.authenticated
+id: public_research_group-member
+label: Member
+weight: -100
+admin: false
+scope: insider
+global_role: authenticated
+group_type: public_research_group
+permissions:
+  - 'access group content menu overview'
+  - 'access group_media overview'
+  - 'access group_node overview'
+  - 'leave group'
+  - 'view group'
+  - 'view group_membership relationship'

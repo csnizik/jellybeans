@@ -1,0 +1,14 @@
+uuid: 3f34c5c0-1e21-497b-9fcf-2a24ef474201
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.hybrid_research_group
+id: hybrid_research_group-admin
+label: Admin
+weight: 100
+admin: true
+scope: individual
+global_role: null
+group_type: hybrid_research_group
+permissions: {  }

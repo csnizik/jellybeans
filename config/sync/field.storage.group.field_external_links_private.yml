@@ -1,0 +1,19 @@
+uuid: 7249c869-d9d6-4ec3-8699-5b4ea38e5d95
+langcode: en
+status: true
+dependencies:
+  module:
+    - group
+    - link
+id: group.field_external_links_private
+field_name: field_external_links_private
+entity_type: group
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

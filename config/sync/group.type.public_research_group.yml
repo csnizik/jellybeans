@@ -1,0 +1,12 @@
+uuid: 3a5c6eeb-e36b-4252-9098-dd0de219e434
+langcode: en
+status: true
+dependencies: {  }
+id: public_research_group
+label: 'Public Research Group'
+description: 'Research groups for publicly-funded agricultural research projects where findings, publications, and resources can be shared with the scientific community and general public. Suitable for educational outreach, published research dissemination, and collaborative projects with universities or public institutions. Non-members can view group content but cannot contribute without membership.'
+new_revision: true
+creator_membership: true
+creator_wizard: false
+creator_roles:
+  - public_research_group-admin

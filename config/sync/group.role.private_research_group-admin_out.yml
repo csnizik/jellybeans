@@ -1,0 +1,15 @@
+uuid: f5ca57f8-e561-4b32-b20a-6ee9f9a89dbd
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.private_research_group
+    - user.role.administrator
+id: private_research_group-admin_out
+label: Administrator
+weight: 101
+admin: true
+scope: outsider
+global_role: administrator
+group_type: private_research_group
+permissions: {  }

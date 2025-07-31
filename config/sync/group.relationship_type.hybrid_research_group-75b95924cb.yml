@@ -1,0 +1,18 @@
+uuid: 094b98c0-d5d0-4914-a97f-ad54c988bc5a
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.hybrid_research_group
+    - media.type.remote_video
+  module:
+    - groupmedia
+    - media
+id: hybrid_research_group-75b95924cb
+group_type: hybrid_research_group
+content_plugin: 'group_media:remote_video'
+plugin_config:
+  group_cardinality: 1
+  entity_cardinality: 1
+  use_creation_wizard: false
+  tracking_enabled: 1

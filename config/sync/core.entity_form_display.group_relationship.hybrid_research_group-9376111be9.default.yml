@@ -1,0 +1,38 @@
+uuid: 90a8fa4a-5d09-4b58-ab4d-cd41709aee74
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.group_relationship.hybrid_research_group-9376111be9.group_roles
+    - group.relationship_type.hybrid_research_group-9376111be9
+  module:
+    - path
+id: group_relationship.hybrid_research_group-9376111be9.default
+targetEntityType: group_relationship
+bundle: hybrid_research_group-9376111be9
+mode: default
+content:
+  entity_id:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  group_roles:
+    type: options_buttons
+    weight: 31
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  uid: true

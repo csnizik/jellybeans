@@ -1,0 +1,16 @@
+uuid: 2fb82652-2f79-43d6-982b-79c948e22b38
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.hybrid_research_group
+    - user.role.authenticated
+id: hybrid_research_group-outsider
+label: Outsider
+weight: -101
+admin: false
+scope: outsider
+global_role: authenticated
+group_type: hybrid_research_group
+permissions:
+  - 'view group'

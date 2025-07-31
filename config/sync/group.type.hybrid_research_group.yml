@@ -1,0 +1,12 @@
+uuid: a3a1334a-8136-4ff1-bad0-5f33d3b320ad
+langcode: en
+status: true
+dependencies: {  }
+id: hybrid_research_group
+label: 'Hybrid Research Group'
+description: 'Flexible content model allowing for both public and private content areas as needed.'
+new_revision: true
+creator_membership: true
+creator_wizard: true
+creator_roles:
+  - hybrid_research_group-admin

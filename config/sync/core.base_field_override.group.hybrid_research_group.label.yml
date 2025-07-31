@@ -1,0 +1,18 @@
+uuid: 175bb247-94da-4340-a380-311d2cb93232
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.hybrid_research_group
+id: group.hybrid_research_group.label
+field_name: label
+entity_type: group
+bundle: hybrid_research_group
+label: Title
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

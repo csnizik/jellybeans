@@ -1,0 +1,82 @@
+uuid: 26435d0e-d72a-4791-8d1a-29e1b6b44eca
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.group.public_research_group.field_administrative_users
+    - field.field.group.public_research_group.field_contact_email
+    - field.field.group.public_research_group.field_description
+    - field.field.group.public_research_group.field_external_links_public
+    - field.field.group.public_research_group.field_group_status
+    - field.field.group.public_research_group.field_research_areas
+    - group.type.public_research_group
+  module:
+    - link
+    - options
+    - text
+id: group.public_research_group.default
+targetEntityType: group
+bundle: public_research_group
+mode: default
+content:
+  field_administrative_users:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: -3
+    region: content
+  field_contact_email:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: -4
+    region: content
+  field_external_links_public:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_group_status:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: -1
+    region: content
+  field_research_areas:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: -2
+    region: content
+  label:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: -5
+    region: content
+hidden:
+  changed: true
+  created: true
+  uid: true
