@@ -184,6 +184,43 @@ The following USWDS paragraph types are available for content building:
 - Secure media handling
 - Input sanitization and validation
 
+## Group Architecture Decisions
+
+### Group Types
+
+The ARS Apps platform implements three distinct group types to accommodate varying research collaboration needs:
+
+1. **Public Research Groups** - Open science initiatives with public content visibility
+   - Anonymous users can view content but not contribute
+   - Automated membership approval for authenticated USDA users
+   - Full media capabilities for educational outreach
+
+2. **Private Research Groups** - Restricted access for sensitive research
+   - No anonymous access
+   - Invitation-only membership
+   - Audit trail for compliance
+   - Limited to essential content types
+
+3. **Hybrid Research Groups** - Mixed visibility requirements
+   - Public face with private working areas
+   - Per-content visibility controls
+   - Membership by approval
+   - Full content type flexibility
+
+### Key Architectural Decisions
+
+**Role Structure**: Leverages Group v3's flexible permissions with distinct Outsider/Insider/Individual scopes, synchronized with Drupal's authentication system.
+
+**Content Strategy**: Article nodes for updates, Basic pages for static content, comprehensive media library integration for research materials.
+
+**Security Model**: Defense-in-depth approach with private groups completely hidden from non-members, while public groups encourage open science collaboration.
+
+**Administrative Oversight**: Global administrators maintain access across all groups for compliance and support, with granular permission delegation to group administrators.
+
+**Field Architecture**: Consistent metadata across group types (PI, funding, dates) with type-specific additions (NDAs for private, ORCID for public).
+
+This architecture supports USDA ARS's dual mandate of advancing agricultural science through collaboration while protecting sensitive research and industry partnerships.
+
 ## Deployment
 
 ### Environment Configuration
