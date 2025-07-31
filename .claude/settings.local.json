@@ -12,7 +12,10 @@
       "Bash(drush entity:show:*)",
       "Bash(drush config:get:*)",
       "Bash(drush url:*)",
-      "Bash(drush status:*)"
+      "Bash(drush status:*)",
+      "Bash(drush config:export:*)",
+      "Bash(mkdir:*)",
+      "Bash(chmod:*)"
     ],
     "deny": []
   }
