@@ -1,10 +1,16 @@
 global:
   css:
     theme:
-      assets/css/styles.css: { }
+      assets/css/base/styles.css: {}
   js:
     assets/uswds/js/uswds.min.js: {}
     assets/uswds/js/uswds-init.min.js: {}
   dependencies:
     - core/drupal
     - core/jquery
+    - ui_suite_arsapps/nav
+
+nav:
+  css:
+    component:
+      components/nav/css/uswds-nav.css: {}
