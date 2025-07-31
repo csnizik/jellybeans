@@ -10,7 +10,7 @@ logo:
   path: themes/custom/ui_suite_arsapps/usda-logo-c-sm.svg
 favicon:
   use_default: 1
-cdn_provider: custom
+cdn_provider: none
 cdn_custom_img: 'https://cdn.jsdelivr.net/npm/@uswds/uswds@3.12.0/dist/img'
 cdn_custom_css: 'https://cdn.jsdelivr.net/npm/@uswds/uswds@3.12.0/dist/css/uswds.min.css'
 cdn_custom_js: 'https://cdn.jsdelivr.net/npm/@uswds/uswds@3.12.0/dist/js/uswds.js'

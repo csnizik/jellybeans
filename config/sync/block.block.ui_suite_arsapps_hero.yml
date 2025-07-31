@@ -1,0 +1,64 @@
+uuid: 8bd5a6eb-aaa0-48c0-beda-6acccd9c8ba8
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+  module:
+    - token
+    - ui_patterns
+    - ui_patterns_blocks
+  theme:
+    - ui_suite_arsapps
+    - ui_suite_uswds
+id: ui_suite_arsapps_hero
+theme: ui_suite_arsapps
+region: hero
+weight: 0
+provider: null
+plugin: 'ui_patterns:ui_suite_uswds:hero'
+settings:
+  id: 'ui_patterns:ui_suite_uswds:hero'
+  label: Hero
+  label_display: '0'
+  provider: ui_patterns_blocks
+  ui_patterns:
+    component_id: 'ui_suite_uswds:hero'
+    variant_id: null
+    props:
+      attributes:
+        source_id: attributes
+        source:
+          value: ''
+      title_alt:
+        source_id: textfield
+        source:
+          value: ''
+      aria_label:
+        source_id: textfield
+        source:
+          value: ''
+      bg_image:
+        source_id: token
+        source:
+          value: '[site:base-url]/sites/default/files/2025-07/AdobeStock_660277884.png'
+    slots:
+      title:
+        sources:
+          -
+            source_id: wysiwyg
+            source:
+              value:
+                value: '<p>Agricultural Research Service (ARS)</p>'
+                format: basic_html
+            _weight: '0'
+      body:
+        sources:
+          -
+            source_id: wysiwyg
+            source:
+              value:
+                value: '<p>We are attempting to show all of the possibilities of using UI Suite for site building that makes using USWDS easier.</p>'
+                format: basic_html
+            _weight: '0'
+visibility: {  }
