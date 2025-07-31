@@ -54,7 +54,8 @@
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"
-            }
+            },
+            "allowed-packages": ["drupal/claude_code"]
         },
         "installer-paths": {
             "web/core": [
@@ -111,6 +112,7 @@
         }
     },
     "require-dev": {
+        "drupal/claude_code": "^1.0",
         "drupal/coder": "^8.3"
     }
 }

@@ -19,4 +19,4 @@ regions:
   content: Content
   footer_bottom: 'Footer - Bottom'
 libraries:
-  - ui_suite_arsapps/framework
+  - ui_suite_arsapps/global
