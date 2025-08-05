@@ -116,6 +116,7 @@
     },
     "require-dev": {
         "drupal/claude_code": "^1.0",
-        "drupal/coder": "^8.3"
+        "drupal/coder": "^8.3",
+        "slevomat/coding-standard": "^8.20"
     }
 }
