@@ -56,7 +56,7 @@ COPY . .
 
 # Build theme assets
 WORKDIR /var/www/html/web/themes/custom/ui_suite_arsapps
-RUN npm ci --production=false \
+RUN npm ci --legacy-peer-deps \
     && npm run build \
     && rm -rf node_modules
 
