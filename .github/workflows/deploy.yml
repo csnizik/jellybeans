@@ -39,6 +39,11 @@ jobs:
       #     publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
       #     images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
 
+      - name: Azure login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
       - name: Configure container via ARM API and restart
         uses: azure/CLI@v1
         with:
@@ -47,10 +52,10 @@ jobs:
             az webapp config container set \
               --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
               --name ${{ env.AZURE_WEBAPP_NAME }} \
-              --docker-custom-image-name ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest \
-              --docker-registry-server-url https://${{ env.REGISTRY }} \
-              --docker-registry-server-user ${{ secrets.ACR_USERNAME }} \
-              --docker-registry-server-password ${{ secrets.ACR_PASSWORD }}
+              --container-image-name ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest \
+              --container-registry-url https://${{ env.REGISTRY }} \
+              --container-registry-user ${{ secrets.ACR_USERNAME }} \
+              --container-registry-password ${{ secrets.ACR_PASSWORD }}
             az webapp restart \
               --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
               --name ${{ env.AZURE_WEBAPP_NAME }}
