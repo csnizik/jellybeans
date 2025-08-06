@@ -31,24 +31,4 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
-
-      - name: Azure login
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-      - name: Configure container via ARM API and restart
-        uses: azure/CLI@v1
-        with:
-          azcliversion: latest
-          inlineScript: |
-            az webapp config container set \
-              --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
-              --name ${{ env.AZURE_WEBAPP_NAME }} \
-              --container-image-name ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest \
-              --container-registry-url https://${{ env.REGISTRY }} \
-              --container-registry-user ${{ secrets.ACR_USERNAME }} \
-              --container-registry-password ${{ secrets.ACR_PASSWORD }}
-            az webapp restart \
-              --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
-              --name ${{ env.AZURE_WEBAPP_NAME }}
+          labels: org.opencontainers.image.revision=${{ github.sha }}
