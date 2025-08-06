@@ -32,9 +32,25 @@ jobs:
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
 
-      - name: Deploy to Azure Web App
-        uses: azure/webapps-deploy@v2
+      # - name: Deploy to Azure Web App
+      #   uses: azure/webapps-deploy@v2
+      #   with:
+      #     app-name: ${{ env.AZURE_WEBAPP_NAME }}
+      #     publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+      #     images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+
+      - name: Configure container via ARM API and restart
+        uses: azure/CLI@v1
         with:
-          app-name: ${{ env.AZURE_WEBAPP_NAME }}
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          azcliversion: latest
+          inlineScript: |
+            az webapp config container set \
+              --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
+              --name ${{ env.AZURE_WEBAPP_NAME }} \
+              --docker-custom-image-name ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest \
+              --docker-registry-server-url https://${{ env.REGISTRY }} \
+              --docker-registry-server-user ${{ secrets.ACR_USERNAME }} \
+              --docker-registry-server-password ${{ secrets.ACR_PASSWORD }}
+            az webapp restart \
+              --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
+              --name ${{ env.AZURE_WEBAPP_NAME }}
