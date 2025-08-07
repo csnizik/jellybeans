@@ -877,7 +877,9 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 
 $databases['default']['default'] = [
   'driver' => 'mysql',
-  'database' => getenv('DB_DATABASE'),
+  // 'database' => getenv('DB_DATABASE'),
+  // TEMPORARILY TESTING; if it works, need to change the env var
+  'database' => 'apps_drupal_stage',
   'username' => getenv('DB_USER'),
   'password' => getenv('DB_PASSWORD'),
   'host' => getenv('DB_HOST'),
