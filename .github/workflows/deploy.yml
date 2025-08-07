@@ -14,6 +14,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Check cert file
+        run: ls -l docker/certs/DigiCertGlobalG2.crt.pem
+
+
       - name: Checkout code
         uses: actions/checkout@v4
 
