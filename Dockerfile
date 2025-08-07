@@ -2,7 +2,7 @@
 FROM php:8.3-apache AS base
 
 # Copy the DigiCert G2 root certificate into the image
-COPY docker/certs/DigiCertGlobalG2.crt.pem /usr/local/share/ca-certificates/DigiCertGlobalG2.crt
+COPY /docker/certs/DigiCertGlobalG2.crt.pem /usr/local/share/ca-certificates/DigiCertGlobalG2.crt
 
 # Add it to the system's trusted CAs
 RUN update-ca-certificates
