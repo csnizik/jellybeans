@@ -877,17 +877,19 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 
 $databases['default']['default'] = [
   'driver' => 'mysql',
-  'database' => getenv('DB_DATABASE'),
-  // TEMPORARILY TESTING; if it works, need to change the env var
-  // 'database' => 'apps_drupal_stage',
   'username' => getenv('DB_USER'),
-  // 'username' => 'apps_drupal_stage',
   'password' => getenv('DB_PASSWORD'),
-  'host' => getenv('DB_HOST'),
-  // 'host' => '199.133.205.244',
-  'port' => getenv('DB_PORT'),
+  'host' => NULL,
+  'port' => NULL,
+  'database' => NULL,
+  'dsn' => sprintf(
+	  'mysql:host=%s;port=%s;dbname=%s;ssl-mode=REQUIRED;charset=utf8mb4',
+	  getenv('DB_HOST'),
+	  getenv('DB_PORT'),
+	  getenv('DB_DATABASE')
+  ),
   'prefix' => '',
-  'collation' => 'utf8mb4_general_ci',
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'pdo' => [
 	  \PDO::MYSQL_ATTR_SSL_CA => '/usr/local/share/ca-certificates/DigiCertGlobalG2.crt',
 	  \PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => TRUE,
