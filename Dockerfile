@@ -1,6 +1,12 @@
 # Multi-stage build for ARS Apps Drupal site
 FROM php:8.3-apache AS base
 
+# Copy the DigiCert G2 root certificate into the image
+COPY docker/certs/DigiCertGlobalG2.crt.pem /usr/local/share/ca-certificates/DigiCertGlobalG2.crt
+
+# Add it to the system's trusted CAs
+RUN update-ca-certificates
+
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     git \

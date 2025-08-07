@@ -877,18 +877,22 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 
 $databases['default']['default'] = [
   'driver' => 'mysql',
-  // 'database' => getenv('DB_DATABASE'),
+  'database' => getenv('DB_DATABASE'),
   // TEMPORARILY TESTING; if it works, need to change the env var
-  'database' => 'apps_drupal_stage',
-  // 'username' => getenv('DB_USER'),
-  'username' => 'apps_drupal_stage',
+  // 'database' => 'apps_drupal_stage',
+  'username' => getenv('DB_USER'),
+  // 'username' => 'apps_drupal_stage',
   'password' => getenv('DB_PASSWORD'),
-  // 'host' => getenv('DB_HOST'),
-  'host' => '199.133.205.244',
+  'host' => getenv('DB_HOST'),
+  // 'host' => '199.133.205.244',
   'port' => getenv('DB_PORT'),
   'prefix' => '',
   'collation' => 'utf8mb4_general_ci',
-];
+  'pdo' => [
+	  \PDO::MYSQL_ATTR_SSL_CA => '/usr/local/share/ca-certificates/DigiCertGlobalG2.crt',
+	  \PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => TRUE,
+	],
+ ];
 
 // Automatically generated include for settings managed by ddev.
 if (getenv('IS_DDEV_PROJECT') == 'true' && file_exists(__DIR__ . '/settings.ddev.php')) {
