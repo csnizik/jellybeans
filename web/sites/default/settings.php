@@ -892,6 +892,7 @@ $databases['default']['default'] = [
 
 // Automatically generated include for settings managed by ddev.
 if (getenv('IS_DDEV_PROJECT') == 'true' && file_exists(__DIR__ . '/settings.ddev.php')) {
+  $databases = [];
   include __DIR__ . '/settings.ddev.php';
 }
 
