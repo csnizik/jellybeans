@@ -14,8 +14,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check cert file
-        run: ls -l docker/certs/DigiCertGlobalG2.crt.pem
+      - name: Debug workspace contents
+        run: |
+          echo "Workspace root: $PWD"
+          ls -R .
 
 
       - name: Checkout code
