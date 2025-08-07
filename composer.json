@@ -29,6 +29,7 @@
         "drupal/groupmedia": "^4.0",
         "drupal/openid_connect_windows_aad": "^2.0@beta",
         "drupal/pathauto": "^1.13",
+        "drupal/sitewide_alert": "^3.0",
         "drupal/token": "^1.15",
         "drupal/ui_examples": "^1.0",
         "drupal/ui_skins": "^1.1@alpha",
