@@ -880,9 +880,11 @@ $databases['default']['default'] = [
   // 'database' => getenv('DB_DATABASE'),
   // TEMPORARILY TESTING; if it works, need to change the env var
   'database' => 'apps_drupal_stage',
-  'username' => getenv('DB_USER'),
+  // 'username' => getenv('DB_USER'),
+  'username' => 'apps_drupal_stage',
   'password' => getenv('DB_PASSWORD'),
-  'host' => getenv('DB_HOST'),
+  // 'host' => getenv('DB_HOST'),
+  'host' => '199.133.205.244',
   'port' => getenv('DB_PORT'),
   'prefix' => '',
   'collation' => 'utf8mb4_general_ci',
