@@ -879,15 +879,9 @@ $databases['default']['default'] = [
   'driver' => 'mysql',
   'username' => getenv('DB_USER'),
   'password' => getenv('DB_PASSWORD'),
-  'host' => NULL,
-  'port' => NULL,
-  'database' => NULL,
-  'dsn' => sprintf(
-	  'mysql:host=%s;port=%s;dbname=%s;ssl-mode=REQUIRED;charset=utf8mb4',
-	  getenv('DB_HOST'),
-	  getenv('DB_PORT'),
-	  getenv('DB_DATABASE')
-  ),
+  'host' => getenv('DB_HOST'),
+  'port' => getenv('DB_PORT'),
+  'database' => getenv('DB_DATABASE'),
   'prefix' => '',
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'pdo' => [
