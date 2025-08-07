@@ -1,0 +1,15 @@
+uuid: 3fcac30b-82da-49e5-b531-78888fbb1c4c
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.nrrl
+  module:
+    - user
+id: nrrl-group_membership
+group_type: nrrl
+content_plugin: group_membership
+plugin_config:
+  group_cardinality: 0
+  entity_cardinality: 1
+  use_creation_wizard: false

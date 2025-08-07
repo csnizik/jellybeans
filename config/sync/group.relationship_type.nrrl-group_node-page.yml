@@ -1,0 +1,17 @@
+uuid: 8e836256-518a-4c6a-83ac-226ab2af4e61
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.nrrl
+    - node.type.page
+  module:
+    - gnode
+    - node
+id: nrrl-group_node-page
+group_type: nrrl
+content_plugin: 'group_node:page'
+plugin_config:
+  group_cardinality: 0
+  entity_cardinality: 1
+  use_creation_wizard: false

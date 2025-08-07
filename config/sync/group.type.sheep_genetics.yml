@@ -1,0 +1,12 @@
+uuid: 985925e6-7777-469e-a6f1-6622b5fa5798
+langcode: en
+status: true
+dependencies: {  }
+id: sheep_genetics
+label: 'Sheep Genetics'
+description: 'The mission of the USDA-ARS Range Sheep Production Efficiency Research Unit (RSPER) is to develop integrated methods for increasing production efficiency of sheep and to simultaneously improve the sustainability of rangeland ecosystems. The U.S. Sheep Experiment Station is located in Dubois, Idaho.'
+new_revision: true
+creator_membership: true
+creator_wizard: true
+creator_roles:
+  - sheep_genetics-admin

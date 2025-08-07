@@ -1,0 +1,15 @@
+uuid: bf9bcbd1-f092-4d46-95dd-9b84d298ed6b
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.nrrl
+    - user.role.content_editor
+id: nrrl-member
+label: 'NRRL Content Editor'
+weight: -8
+admin: false
+scope: insider
+global_role: content_editor
+group_type: nrrl
+permissions: {  }

@@ -1,0 +1,18 @@
+uuid: 20dbc2be-753b-47ff-b569-5515b125d3c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.nrrl
+id: group.nrrl.label
+field_name: label
+entity_type: group
+bundle: nrrl
+label: Title
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

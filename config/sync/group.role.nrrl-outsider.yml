@@ -1,0 +1,15 @@
+uuid: b5903d7b-8c8d-4f90-b4b2-9a43de6dde8e
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.nrrl
+    - user.role.authenticated
+id: nrrl-outsider
+label: 'NRRL Authenticated Consumer'
+weight: -9
+admin: false
+scope: outsider
+global_role: authenticated
+group_type: nrrl
+permissions: {  }

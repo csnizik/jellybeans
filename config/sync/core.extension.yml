@@ -16,7 +16,9 @@ module:
   config: 0
   contact: 0
   contextual: 0
+  dashboards: 0
   datetime: 0
+  datetime_range: 0
   dblog: 0
   devel_generate: 0
   dynamic_page_cache: 0
@@ -37,6 +39,7 @@ module:
   help: 0
   history: 0
   image: 0
+  key: 0
   layout_builder: 0
   layout_discovery: 0
   link: 0
@@ -47,12 +50,15 @@ module:
   mysql: 0
   node: 0
   nomarkup: 0
+  openid_connect: 0
+  openid_connect_windows_aad: 0
   options: 0
   page_cache: 0
   path: 0
   path_alias: 0
   search: 0
   shortcut: 0
+  sitewide_alert: 0
   system: 0
   taxonomy: 0
   text: 0
@@ -81,6 +87,7 @@ module:
   user: 0
   views_ui: 0
   pathauto: 1
+  externalauth: 10
   views: 10
   paragraphs: 11
   standard: 1000

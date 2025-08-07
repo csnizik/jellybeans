@@ -1,0 +1,15 @@
+uuid: 80167800-fae1-4d74-8760-7ab7a464cb22
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.sheep_genetics
+    - user.role.content_editor
+id: sheep_genetics-member
+label: 'SG Content Editor'
+weight: -8
+admin: false
+scope: insider
+global_role: content_editor
+group_type: sheep_genetics
+permissions: {  }

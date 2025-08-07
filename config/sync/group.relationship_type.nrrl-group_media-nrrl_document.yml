@@ -1,0 +1,18 @@
+uuid: f03e78c4-a495-40aa-ba94-6b93167a5b51
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.nrrl
+    - media.type.nrrl_document
+  module:
+    - groupmedia
+    - media
+id: nrrl-group_media-nrrl_document
+group_type: nrrl
+content_plugin: 'group_media:nrrl_document'
+plugin_config:
+  group_cardinality: 1
+  entity_cardinality: 1
+  use_creation_wizard: false
+  tracking_enabled: 1

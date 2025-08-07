@@ -1,0 +1,15 @@
+uuid: a489e750-817e-4958-ae1c-fdd4150a87d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.sheep_genetics
+    - user.role.anonymous
+id: sheep_genetics-anonymous
+label: Anonymous
+weight: -10
+admin: false
+scope: outsider
+global_role: anonymous
+group_type: sheep_genetics
+permissions: {  }

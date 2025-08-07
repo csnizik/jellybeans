@@ -1,0 +1,15 @@
+uuid: 10aeea5f-eb6d-47e2-befc-dd865946bf6f
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.nrrl
+    - user.role.content_administrator
+id: nrrl-admin_in
+label: 'NRRL Content Administrator'
+weight: -7
+admin: false
+scope: insider
+global_role: content_administrator
+group_type: nrrl
+permissions: {  }

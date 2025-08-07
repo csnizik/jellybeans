@@ -1,0 +1,15 @@
+uuid: 84a9dc38-dadc-4df9-a860-e157d306d329
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.sheep_genetics
+    - user.role.authenticated
+id: sheep_genetics-outsider
+label: 'SG Authenticated Consumer'
+weight: -9
+admin: false
+scope: outsider
+global_role: authenticated
+group_type: sheep_genetics
+permissions: {  }

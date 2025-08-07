@@ -1,0 +1,15 @@
+uuid: e8420527-cd1c-46a5-9f8a-36b06aa8cd17
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.sheep_genetics
+    - user.role.content_administrator
+id: sheep_genetics-admin_in
+label: 'SG Content Administrator'
+weight: -7
+admin: false
+scope: insider
+global_role: content_administrator
+group_type: sheep_genetics
+permissions: {  }

@@ -1,0 +1,95 @@
+uuid: bbe2da2f-3c39-40bd-be27-e8ee4dabf027
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.nrrl_document.field_abbreviation
+    - field.field.media.nrrl_document.field_description
+    - field.field.media.nrrl_document.field_media_document
+    - field.field.media.nrrl_document.field_media_formula
+    - field.field.media.nrrl_document.field_medium_num
+    - media.type.nrrl_document
+  module:
+    - file
+    - path
+    - text
+id: media.nrrl_document.default
+targetEntityType: media
+bundle: nrrl_document
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_abbreviation:
+    type: string_textfield
+    weight: 102
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_description:
+    type: text_textarea
+    weight: 103
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_media_document:
+    type: file_generic
+    weight: 0
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  field_media_formula:
+    type: boolean_checkbox
+    weight: 101
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_medium_num:
+    type: number
+    weight: 104
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 100
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

@@ -1,0 +1,15 @@
+uuid: 82fe49e6-4992-4430-9ed5-9526ec715db3
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.sheep_genetics
+  module:
+    - user
+id: sheep_genetics-group_membership
+group_type: sheep_genetics
+content_plugin: group_membership
+plugin_config:
+  group_cardinality: 0
+  entity_cardinality: 1
+  use_creation_wizard: false

@@ -1,0 +1,14 @@
+uuid: 4913f1fe-72be-4899-9e90-20e9c1a6cfa5
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.sheep_genetics
+id: sheep_genetics-admin
+label: 'Global Admin'
+weight: -6
+admin: true
+scope: individual
+global_role: null
+group_type: sheep_genetics
+permissions: {  }

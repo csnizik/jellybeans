@@ -1,0 +1,14 @@
+uuid: 7d9e168c-3e21-4d15-8876-fa51d0746dfd
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.nrrl
+id: nrrl-admin
+label: 'Global Admin'
+weight: -6
+admin: true
+scope: individual
+global_role: null
+group_type: nrrl
+permissions: {  }

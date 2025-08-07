@@ -1,0 +1,15 @@
+uuid: 76416198-6bb3-43d2-8397-296a0ea89877
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.nrrl
+    - user.role.anonymous
+id: nrrl-anonymous
+label: Anonymous
+weight: -10
+admin: false
+scope: outsider
+global_role: anonymous
+group_type: nrrl
+permissions: {  }

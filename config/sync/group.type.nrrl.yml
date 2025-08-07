@@ -1,0 +1,12 @@
+uuid: 4fbb4195-607f-466a-b292-c545cc632423
+langcode: en
+status: true
+dependencies: {  }
+id: nrrl
+label: 'NRRL Culture Collection'
+description: 'The Northern Regional Research Laboratory (NRRL) maintains the ARS Culture Collection, which is the largest publicly available collection of microorganisms in the world. '
+new_revision: true
+creator_membership: true
+creator_wizard: true
+creator_roles:
+  - nrrl-admin

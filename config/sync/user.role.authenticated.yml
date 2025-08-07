@@ -12,12 +12,13 @@ dependencies:
     - media
     - search
     - shortcut
+    - sitewide_alert
     - system
 _core:
   default_config_hash: cFrlqjtkTfvY3RGccjJkPf1SGIfJ942IrxTLWAO4mgA
 id: authenticated
 label: 'Authenticated user'
-weight: 1
+weight: -8
 is_admin: false
 permissions:
   - 'access comments'
@@ -30,3 +31,4 @@ permissions:
   - 'skip comment approval'
   - 'use text format basic_html'
   - 'view media'
+  - 'view published sitewide alert entities'

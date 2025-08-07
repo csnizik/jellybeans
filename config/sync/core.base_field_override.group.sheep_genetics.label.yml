@@ -1,0 +1,18 @@
+uuid: e3d479d8-d653-4ce4-99ae-7b404dae571b
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.sheep_genetics
+id: group.sheep_genetics.label
+field_name: label
+entity_type: group
+bundle: sheep_genetics
+label: Title
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

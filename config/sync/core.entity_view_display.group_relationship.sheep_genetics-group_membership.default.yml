@@ -1,0 +1,23 @@
+uuid: dd15abb9-2945-49dc-984c-1c1e8b19e8bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.group_relationship.sheep_genetics-group_membership.group_roles
+    - group.relationship_type.sheep_genetics-group_membership
+id: group_relationship.sheep_genetics-group_membership.default
+targetEntityType: group_relationship
+bundle: sheep_genetics-group_membership
+mode: default
+content:
+  group_roles:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: -4
+    region: content
+hidden:
+  entity_id: true
+  uid: true

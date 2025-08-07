@@ -1,0 +1,15 @@
+uuid: eff3c98a-6b49-4327-8bc1-3a6e2474d5bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.nrrl
+    - user.role.administrator
+id: nrrl-admin_out
+label: 'Global Administrator'
+weight: -5
+admin: true
+scope: outsider
+global_role: administrator
+group_type: nrrl
+permissions: {  }

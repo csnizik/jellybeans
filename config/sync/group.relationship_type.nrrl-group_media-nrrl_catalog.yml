@@ -1,0 +1,18 @@
+uuid: c975ca1b-4bd6-4ca4-bd19-00690bf7d81d
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.nrrl
+    - media.type.nrrl_catalog
+  module:
+    - groupmedia
+    - media
+id: nrrl-group_media-nrrl_catalog
+group_type: nrrl
+content_plugin: 'group_media:nrrl_catalog'
+plugin_config:
+  group_cardinality: 1
+  entity_cardinality: 1
+  use_creation_wizard: false
+  tracking_enabled: 1
