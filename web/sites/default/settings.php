@@ -886,10 +886,11 @@ $databases['default']['default'] = [
   'driver' => 'mysql',
   'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
   'pdo' => [
-    PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
+    PDO::MYSQL_ATTR_SSL_CA => '/etc/ssl/certs/ca-certificates.crt',
+    PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => true,
   ],
   'init_commands' => [
-    'ssl_mode' => "SET SESSION ssl_mode='REQUIRED'"
+    'ssl_mode' => "SET SESSION ssl_mode='VERIFY_IDENTITY'"
   ]
 ];
 
