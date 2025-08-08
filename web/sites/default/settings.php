@@ -876,14 +876,19 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 # $settings['migrate_file_private_path'] = '';
 
 $databases['default']['default'] = [
-  'driver' => 'mysql',
   'database' => getenv('DB_DATABASE'),
   'username' => getenv('DB_USER'),
   'password' => getenv('DB_PASSWORD'),
+  'prefix' => '',
   'host' => getenv('DB_HOST'),
   'port' => getenv('DB_PORT'),
-  'prefix' => '',
-  'collation' => 'utf8mb4_general_ci',
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
+  'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
+  'pdo' => [
+    PDO::MYSQL_ATTR_SSL_CA => '/usr/local/share/ca-certificates/DigiCertGlobalG2.crt',
+    PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => FALSE,
+  ],
 ];
 
 // Automatically generated include for settings managed by ddev.
