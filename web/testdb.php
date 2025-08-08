@@ -19,7 +19,9 @@ $password = getenv('DB_PASSWORD');
 try {
     // SSL options for Azure MySQL
     $options = [
-        PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
+        PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => true,
+        PDO::MYSQL_ATTR_SSL_CA => '/etc/ssl/certs/ca-certificates.crt',
+        PDO::MYSQL_ATTR_SSL_CAPATH => '/etc/ssl/certs',
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     ];
@@ -29,6 +31,7 @@ try {
     echo "<p>Attempting connection to: {$host}</p>";
     echo "<p>Database: {$dbname}</p>";
     echo "<p>Username: {$username}</p>";
+    echo "<p>Password: {$password}</p>";
 
     $pdo = new PDO($dsn, $username, $password, $options);
 
