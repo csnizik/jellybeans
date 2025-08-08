@@ -5,6 +5,7 @@ dependencies:
   config:
     - filter.format.basic_html
   module:
+    - system
     - token
     - ui_patterns
     - ui_patterns_blocks
@@ -61,4 +62,8 @@ settings:
                 value: '<p>We are attempting to show all of the possibilities of using UI Suite for site building that makes using USWDS easier.</p>'
                 format: basic_html
             _weight: '0'
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'
