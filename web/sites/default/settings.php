@@ -288,7 +288,7 @@
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = '';
+$settings['hash_salt'] = '6fgDEH6CZsawgt%09kIJ5F4!sdXCURGQkgRYTedWd956GtRtEEsvbGHFeTYesd2w';
 
 /**
  * Deployment identifier.
@@ -884,18 +884,13 @@ $databases['default']['default'] = [
   'port' => getenv('DB_PORT'),
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
-  'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
-  'pdo' => [
-    PDO::MYSQL_ATTR_SSL_CA => '/usr/local/share/ca-certificates/DigiCertGlobalG2.crt',
-    PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => FALSE,
-  ],
+  'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/'
 ];
 
 // Automatically generated include for settings managed by ddev.
 if (getenv('IS_DDEV_PROJECT') == 'true' && file_exists(__DIR__ . '/settings.ddev.php')) {
   include __DIR__ . '/settings.ddev.php';
 }
-
 /**
  * Load local development override configuration, if available.
  *

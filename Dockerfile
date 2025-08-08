@@ -74,10 +74,6 @@ RUN chown -R www-data:www-data /var/www/html \
 # Configure PHP for production
 COPY docker/php/php.ini /usr/local/etc/php/conf.d/drupal.ini
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
-    CMD curl -f http://localhost/health || exit 1
-
 EXPOSE 80
 
 # Start Apache
