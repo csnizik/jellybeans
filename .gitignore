@@ -50,6 +50,11 @@ vendor/
 node_modules/
 **/node_modules/
 
+# Editor swap files
+*.swp
+*.swo
+*.swx
+
 /CLAUDE.md
 
 .dev/
