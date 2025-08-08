@@ -884,7 +884,13 @@ $databases['default']['default'] = [
   'port' => getenv('DB_PORT'),
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
-  'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/'
+  'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
+  'pdo' => [
+    PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
+  ],
+  'init_commands' => [
+    'ssl_mode' => "SET SESSION ssl_mode='REQUIRED'"
+  ]
 ];
 
 // Automatically generated include for settings managed by ddev.
