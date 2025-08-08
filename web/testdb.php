@@ -13,7 +13,7 @@ echo "<h2>Test 1: Direct PDO Connection</h2>";
 
 $host = getenv('DB_HOST');
 $username = getenv('DB_USER');
-$dbname = getenv('DB_DATABAME');
+$dbname = getenv('DB_DATABASE');
 $password = getenv('DB_PASSWORD');
 
 try {
@@ -82,7 +82,7 @@ try {
 // Test 3: Environment variables (if used)
 echo "<h2>Test 3: Environment Variables</h2>";
 
-$env_vars = ['DB_HOST', 'DB_NAME', 'DB_USERNAME', 'DB_PASSWORD'];
+$env_vars = ['DB_HOST', 'DB_DATABASE', 'DB_USER', 'DB_PASSWORD'];
 foreach ($env_vars as $var) {
     $value = $_ENV[$var] ?? getenv($var) ?? 'Not set';
     if ($var === 'DB_PASSWORD') {
