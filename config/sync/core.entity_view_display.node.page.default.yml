@@ -4,12 +4,9 @@ status: true
 dependencies:
   config:
     - field.field.node.page.body
-    - field.field.node.page.field_banner_image
-    - field.field.node.page.field_test_para_field
     - field.field.node.page.layout_builder__layout
     - node.type.page
   module:
-    - entity_reference_revisions
     - layout_builder
     - layout_discovery
     - text
@@ -24,41 +21,7 @@ third_party_settings:
         layout_settings:
           label: ''
           context_mapping: {  }
-        components:
-          e0f2b2c3-f9be-4971-a086-8809b1a63d1f:
-            uuid: e0f2b2c3-f9be-4971-a086-8809b1a63d1f
-            region: content
-            configuration:
-              id: 'field_block:node:page:field_test_para_field'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: entity_reference_revisions_entity_view
-                label: above
-                settings:
-                  view_mode: default
-                  link: ''
-                third_party_settings: {  }
-            weight: 0
-            additional: {  }
-          1cc022a3-3a56-4bb2-9396-f01a638f451d:
-            uuid: 1cc022a3-3a56-4bb2-9396-f01a638f451d
-            region: content
-            configuration:
-              id: 'field_block:node:page:field_banner_image'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: entity_reference_entity_view
-                label: above
-                settings:
-                  view_mode: default
-                  link: false
-                third_party_settings: {  }
-            weight: 1
-            additional: {  }
+        components: {  }
         third_party_settings: {  }
 _core:
   default_config_hash: M_Y8L5tfmhx7DR143E05YyZSpvgil6VFvqcfBWykalg
@@ -73,24 +36,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 100
-    region: content
-  field_banner_image:
-    type: entity_reference_entity_view
-    label: above
-    settings:
-      view_mode: default
-      link: false
-    third_party_settings: {  }
-    weight: 103
-    region: content
-  field_test_para_field:
-    type: entity_reference_revisions_entity_view
-    label: above
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    weight: 102
     region: content
   links:
     settings: {  }
