@@ -19,11 +19,11 @@ $password = getenv('DB_PASSWORD');
 try {
     // SSL options for Azure MySQL
     $options = [
-        PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => true,
-        PDO::MYSQL_ATTR_SSL_CA => '/etc/ssl/certs/ca-certificates.crt',
-        PDO::MYSQL_ATTR_SSL_CAPATH => '/etc/ssl/certs',
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        \PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => true,
+        \PDO::MYSQL_ATTR_SSL_CA => '/etc/ssl/certs/ca-certificates.crt',
+        \PDO::MYSQL_ATTR_SSL_CAPATH => '/etc/ssl/certs',
+        \PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        \PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     ];
 
     $dsn = "mysql:host={$host};port=3306;dbname={$dbname};charset=utf8mb4";
@@ -44,6 +44,15 @@ try {
     echo "<p>Current Time: " . $result['current_time'] . "</p>";
 
     // Test SSL status
+    try {
+      $stmt = $pdo->query("SELECT @@session.ssl_cipher AS ssl_ciper");
+      $ssl = $stmt->fetch();
+      $cipher = $ssl && !empty($ssl['ssl_cipher']) ? $ssl['ssl_cipher'] : '';
+      echo "<p>SSL Status: " . ($cipher ? "✅ Enabled ({$cipher})" : "❌ Disabled/Unknown") . "</p>";
+    } catch (Throwable $e) {
+      echo "<p> SSL Status: Unknown (".$e->getMessage().")</p>";
+    }
+
     $stmt = $pdo->query("SHOW STATUS LIKE 'Ssl_cipher'");
     $ssl = $stmt->fetch();
     echo "<p>SSL Status: " . ($ssl['Value'] ? "✅ Enabled ({$ssl['Value']})" : "❌ Disabled") . "</p>";
