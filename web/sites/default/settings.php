@@ -876,6 +876,7 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 # $settings['migrate_file_private_path'] = '';
 
 $databases['default']['default'] = [
+  'driver' => 'mysql',
   'database' => getenv('DB_DATABASE'),
   'username' => getenv('DB_USER'),
   'password' => getenv('DB_PASSWORD'),
@@ -886,15 +887,16 @@ $databases['default']['default'] = [
   'driver' => 'mysql',
   'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
   'pdo' => [
-    PDO::MYSQL_ATTR_SSL_CA => '/etc/ssl/certs/ca-certificates.crt',
-    PDO::MYSQL_ATTR_SSL_CAPATH => '/etc/ssl/certs',
-    PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => true,
+    \PDO::MYSQL_ATTR_SSL_CA => '/etc/ssl/certs/ca-certificates.crt',
+    \PDO::MYSQL_ATTR_SSL_CAPATH => '/etc/ssl/certs',
+    \PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => true,
   ],
   'init_commands' => []
 ];
 
 // Automatically generated include for settings managed by ddev.
 if (getenv('IS_DDEV_PROJECT') == 'true' && file_exists(__DIR__ . '/settings.ddev.php')) {
+  $databases = [];
   include __DIR__ . '/settings.ddev.php';
 }
 /**
