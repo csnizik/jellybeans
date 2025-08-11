@@ -31,7 +31,7 @@ try {
     echo "<p>Attempting connection to: {$host}</p>";
     echo "<p>Database: {$dbname}</p>";
     echo "<p>Username: {$username}</p>";
-    echo "<p>Password: {$password}</p>";
+    echo "<p>Password: ...</p>";
 
     $pdo = new PDO($dsn, $username, $password, $options);
 
