@@ -288,7 +288,7 @@
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = '';
+$settings['hash_salt'] = '6fgDEH6CZsawgt%09kIJ5F4!sdXCURGQkgRYTedWd956GtRtEEsvbGHFeTYesd2w';
 
 /**
  * Deployment identifier.
@@ -876,26 +876,27 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 # $settings['migrate_file_private_path'] = '';
 
 $databases['default']['default'] = [
-  'driver' => 'mysql',
+  'database' => getenv('DB_DATABASE'),
   'username' => getenv('DB_USER'),
   'password' => getenv('DB_PASSWORD'),
+  'prefix' => '',
   'host' => getenv('DB_HOST'),
   'port' => getenv('DB_PORT'),
-  'database' => getenv('DB_DATABASE'),
-  'prefix' => '',
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
+  'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
   'pdo' => [
-	  \PDO::MYSQL_ATTR_SSL_CA => '/usr/local/share/ca-certificates/DigiCertGlobalG2.crt',
-	  \PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => TRUE,
-	],
- ];
+    PDO::MYSQL_ATTR_SSL_CA => '/etc/ssl/certs/ca-certificates.crt',
+    PDO::MYSQL_ATTR_SSL_CAPATH => '/etc/ssl/certs',
+    PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => true,
+  ],
+  'init_commands' => []
+];
 
 // Automatically generated include for settings managed by ddev.
 if (getenv('IS_DDEV_PROJECT') == 'true' && file_exists(__DIR__ . '/settings.ddev.php')) {
-  $databases = [];
   include __DIR__ . '/settings.ddev.php';
 }
-
 /**
  * Load local development override configuration, if available.
  *
