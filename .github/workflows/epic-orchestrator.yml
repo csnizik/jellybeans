@@ -33,12 +33,11 @@ jobs:
           EPIC_TITLE: ${{ steps.epic.outputs.title }}
           EPIC_BODY:  ${{ steps.epic.outputs.body }}
           MODEL_ID:   ${{ env.MODEL_ID }}
-          # Bind the token so 'set -u' won't fail and curl can auth:
-          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ github.token }}  # bind token for curl
         run: |
           set -euo pipefail
 
-          # Build the request JSON safely (properly escapes any quotes/newlines)
+          # Build the request JSON safely (escapes quotes/newlines)
           jq -n \
             --arg model "$MODEL_ID" \
             --arg title "$EPIC_TITLE" \
@@ -61,7 +60,6 @@ jobs:
             }' > request.json
 
           # Call GitHub Models REST API (requires permissions: models: read).
-          # Endpoint returns: { choices: [{ message: { content } }] }
           http_code=$(curl -sS -o response.json -w "%{http_code}" \
             -X POST \
             -H "Accept: application/vnd.github+json" \
@@ -82,7 +80,7 @@ jobs:
           # Extract model output and ensure it's a JSON object with .stories[]
           jq -re '
             .choices[0].message.content
-            | (type=="string" ? fromjson : .)
+            | (if type=="string" then fromjson else . end)
             | . as $root
             | (has("stories") and (.stories|type=="array")) as $ok
             | if $ok then $root else error("missing or invalid .stories") end
@@ -166,5 +164,3 @@ jobs:
                 } catch { /* Copilot not enabled or no access; skip silently */ }
               }
             }
-
-
