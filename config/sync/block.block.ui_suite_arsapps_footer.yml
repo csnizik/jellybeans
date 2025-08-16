@@ -1,0 +1,25 @@
+uuid: 500b7ef1-7315-4d63-9a5b-06deb5dd86c6
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - ui_suite_arsapps
+id: ui_suite_arsapps_footer
+theme: ui_suite_arsapps
+region: footer_bottom
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: Footer
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: null
+  expand_all_items: false
+visibility: {  }

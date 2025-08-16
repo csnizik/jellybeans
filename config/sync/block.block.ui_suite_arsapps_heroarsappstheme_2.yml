@@ -1,4 +1,4 @@
-uuid: 8bd5a6eb-aaa0-48c0-beda-6acccd9c8ba8
+uuid: 140361f8-d2f5-4b75-b1d5-3e5d2852e1b0
 langcode: en
 status: true
 dependencies:
@@ -11,20 +11,19 @@ dependencies:
     - ui_patterns_blocks
   theme:
     - ui_suite_arsapps
-    - ui_suite_uswds
-id: ui_suite_arsapps_hero
+id: ui_suite_arsapps_heroarsappstheme_2
 theme: ui_suite_arsapps
 region: hero
 weight: 0
 provider: null
-plugin: 'ui_patterns:ui_suite_uswds:hero'
+plugin: 'ui_patterns:ui_suite_arsapps:hero'
 settings:
-  id: 'ui_patterns:ui_suite_uswds:hero'
-  label: 'Hero (ARS Apps)'
+  id: 'ui_patterns:ui_suite_arsapps:hero'
+  label: 'Hero (Sheep)'
   label_display: '0'
   provider: ui_patterns_blocks
   ui_patterns:
-    component_id: 'ui_suite_uswds:hero'
+    component_id: 'ui_suite_arsapps:hero'
     variant_id: null
     props:
       attributes:
@@ -42,7 +41,7 @@ settings:
       bg_image:
         source_id: token
         source:
-          value: '[site:base-url]/sites/default/files/2025-08/arsapps_banner.png'
+          value: '[site:base-url]/sites/default/files/2025-08/sheep_banner.png'
     slots:
       title:
         sources:
@@ -50,7 +49,7 @@ settings:
             source_id: wysiwyg
             source:
               value:
-                value: '<p>Agricultural Research Service (ARS)</p>'
+                value: '<p>Sheep Genetics</p>'
                 format: basic_html
             _weight: '0'
       body:
@@ -59,11 +58,11 @@ settings:
             source_id: wysiwyg
             source:
               value:
-                value: '<p>Multi-tenant site using the UI Suite theming system, a low-code, component-driven approach that streamlines design consistency and accelerates front-end development.</p>'
+                value: '<p>Developing integrated methods for increasing production efficiency of sheep and simultaneously improving the sustainability of rangeland ecosystems.</p>'
                 format: basic_html
             _weight: '0'
 visibility:
   request_path:
     id: request_path
     negate: false
-    pages: '<front>'
+    pages: /sheep

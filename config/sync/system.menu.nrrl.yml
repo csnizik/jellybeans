@@ -1,0 +1,8 @@
+uuid: 28532527-49d4-46ec-bce3-f4a1f67c5533
+langcode: en
+status: true
+dependencies: {  }
+id: nrrl
+label: NRRL
+description: ''
+locked: false

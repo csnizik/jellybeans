@@ -58,3 +58,13 @@ node_modules/
 /CLAUDE.md
 
 .dev/
+.ddev/.claude/.credentials.json
+.ddev/.claude/projects/-var-www-html/2b2c942a-3f6c-4806-bb4a-b3ff2ac3d69a.jsonl
+.ddev/.claude/projects/-var-www-html/956be935-a12c-4a00-b131-69f6b4515b00.jsonl
+.ddev/.claude/statsig/statsig.cached.evaluations.4d6a4a05e1
+.ddev/.claude/statsig/statsig.last_modified_time.evaluations
+.ddev/.claude/statsig/statsig.session_id.2656274335
+.ddev/.claude/statsig/statsig.stable_id.2656274335
+.ddev/.claude/todos/2b2c942a-3f6c-4806-bb4a-b3ff2ac3d69a-agent-2b2c942a-3f6c-4806-bb4a-b3ff2ac3d69a.json
+.ddev/.claude/todos/956be935-a12c-4a00-b131-69f6b4515b00-agent-956be935-a12c-4a00-b131-69f6b4515b00.json
+.ddev/.claude.json
