@@ -166,6 +166,33 @@ The following USWDS paragraph types are available for content building:
 - `ui_suite_uswds_hero`: Featured content with background images
 - `ui_suite_uswds_alert`: Status messages and notifications
 
+## Configuration Management
+
+### Custom Configuration Analysis
+
+The site includes extensive custom configurations for:
+
+- **Group Architecture**: Multi-tenant group management with NRRL and Sheep Genetics research groups
+- **USWDS Components**: Custom paragraph types for accordion, card, and other federal design system components  
+- **Custom Media Types**: Specialized handling for NRRL catalog and document management
+- **Field Structure**: 26+ custom fields supporting research data and UI components
+
+For detailed configuration analysis and migration guidance, see:
+
+- **[Configuration Analysis](docs/config-sync-analysis.md)**: Complete analysis of all custom configurations
+- **[Export Checklist](docs/custom-config-checklist.md)**: Quick reference for configuration migration
+- **[Export Script](scripts/export-custom-config.sh)**: Automated export tool for source site
+
+### Configuration Export/Import
+
+```bash
+# Export configurations from source site
+./scripts/export-custom-config.sh
+
+# Import to target site
+drush config:import -y
+```
+
 ## Security & Compliance
 
 ### Section 508 Accessibility
