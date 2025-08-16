@@ -5,6 +5,20 @@ parameters:
     - web/modules/custom
     - web/themes/custom
 
+  excludePaths:
+    - '#^web/themes/custom/.*/node_modules/.*#'
+    - '#^web/themes/custom/.*/node_modules/.*#'
+    - '#^web/themes/custom/.*/vendor/.*#'
+    - '#^web/themes/custom/.*/dist/.*#'
+    - web/themes/custom/ui_suite_arsapps/node_modules
+
+  reportUnmatchedIgnoredErrors: false
+
+  bootstrapFiles:
+    - vendor/autoload.php
+
+  tmpDir: var/phpstan
+
   treatPhpDocTypesAsCertain: true
 
   ignoreErrors:
@@ -21,6 +35,8 @@ parameters:
     - '#Call to method PHPUnit\\Framework\\Assert::assert.* will always evaluate to true#'
 
 includes:
-  # Let extension-installer handle this unless you're not using it
-  # If you're NOT using extension-installer, you can re-enable:
+   # Leave these commented if you're using extension-installer (recommended).
+  # If you DISABLE the plugin later, uncomment both lines:
   # - vendor/mglaman/phpstan-drupal/extension.neon
+  # - vendor/mglaman/phpstan-drupal/rules.neon
+  # - vendor/phpstan/phpstan-deprecation-rules/rules.neon

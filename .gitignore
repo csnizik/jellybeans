@@ -68,3 +68,5 @@ node_modules/
 .ddev/.claude/todos/2b2c942a-3f6c-4806-bb4a-b3ff2ac3d69a-agent-2b2c942a-3f6c-4806-bb4a-b3ff2ac3d69a.json
 .ddev/.claude/todos/956be935-a12c-4a00-b131-69f6b4515b00-agent-956be935-a12c-4a00-b131-69f6b4515b00.json
 .ddev/.claude.json
+
+var/phpstan/
