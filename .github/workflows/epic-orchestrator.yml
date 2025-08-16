@@ -1,0 +1,186 @@
+name: Epic to Stories Orchestrator
+
+on:
+  issues:
+    types: [opened, edited, labeled]
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+  models: read   # Allow calling GitHub Models from Actions. :contentReference[oaicite:1]{index=1}
+
+env:
+  MODEL_NAME: openai/gpt-4.1   # Available via GitHub Models in Actions. :contentReference[oaicite:2]{index=2}
+  # Optional: set PROJECT_URL as a repository variable to auto-add items to your Project v2.
+  PROJECT_URL: ${{ vars.PROJECT_URL }}
+
+jobs:
+  plan-and-seed:
+    if: >
+      github.event.issue != null &&
+      contains(join(github.event.issue.labels.*.name, ','), 'epic')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read epic body
+        id: epic
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const epic = context.payload.issue;
+            core.setOutput('number', epic.number.toString());
+            core.setOutput('title', epic.title || '');
+            core.setOutput('body',  epic.body  || '');
+
+      - name: Ask AI to turn epic into ordered stories JSON
+        id: ai
+        env:
+          EPIC_TITLE: ${{ steps.epic.outputs.title }}
+          EPIC_BODY:  ${{ steps.epic.outputs.body }}
+        run: |
+          cat > prompt.txt <<'EOF'
+          You are a senior delivery lead. Read the epic below and produce a WORK PLAN as JSON.
+          Requirements:
+          - Split into coherent user stories that a single PR could complete.
+          - Use sub-issues when a story must be decomposed to enforce dependencies.
+          - Order the graph so that no issue is startable until its blockers are done.
+          - Prefer ~0.5–2 days of work per issue.
+          - Output ONLY valid JSON. No prose.
+          Schema:
+          {
+            "stories": [
+              {
+                "title": "string",
+                "body": "markdown with acceptance criteria",
+                "labels": ["story","migration"],
+                "depends_on_titles": ["optional array of other story titles"],
+                "sub_issues": [
+                  {
+                    "title": "string",
+                    "body": "markdown",
+                    "labels": ["subissue","migration"],
+                    "depends_on_titles": ["optional"]
+                  }
+                ]
+              }
+            ]
+          }
+
+          EPIC TITLE:
+          ${EPIC_TITLE}
+
+          EPIC TEXT:
+          ${EPIC_BODY}
+          EOF
+
+          # Call GitHub Models (uses GITHUB_TOKEN with models:read). :contentReference[oaicite:3]{index=3}
+          gh models run "$MODEL_NAME" --input-file prompt.txt > plan_raw.txt
+          # Strip surrounding code fences if any, then validate JSON
+          awk 'BEGIN{p=1} /```/{p=!p; next} p{print}' plan_raw.txt > plan.txt || true
+          jq . plan.txt > plan.json
+
+      - name: Create issues, sub-issues, and dependencies
+        id: seed
+        uses: actions/github-script@v7
+        env:
+          EPIC_NUMBER: ${{ steps.epic.outputs.number }}
+        with:
+          script: |
+            const fs = require('fs');
+            const plan = JSON.parse(fs.readFileSync('plan.json','utf8'));
+            const owner = context.repo.owner, repo = context.repo.repo;
+            const epicNumber = Number(process.env.EPIC_NUMBER);
+
+            const created = []; // {title, number, id, isSub}
+            const byTitle = new Map();
+
+            async function ensureIssue(obj, extraLabels=[]) {
+              const title = String(obj.title).trim();
+              const body  = obj.body || '';
+              const labels = Array.from(new Set([...(obj.labels||[]), ...extraLabels, `parent-epic-${epicNumber}`]));
+              // Try to find an open issue with the same title under this epic label to avoid dupes.
+              // (We keep it simple: create new; GitHub search could be used to dedupe further.)
+              const { data: issue } = await github.rest.issues.create({ owner, repo, title, body, labels });
+              created.push({ title, number: issue.number, id: issue.id, isSub: extraLabels.includes('subissue') });
+              byTitle.set(title.toLowerCase(), issue);
+              return issue;
+            }
+
+            // 1) Create top-level stories
+            for (const s of (plan.stories || [])) {
+              await ensureIssue(s, ['story']);
+              // Create sub-issues
+              for (const sub of (s.sub_issues || [])) {
+                const child = await ensureIssue(sub, ['subissue']);
+                // Sub-issue depends on parent story unless explicitly set
+                if (!sub.depends_on_titles || !sub.depends_on_titles.length) {
+                  sub.depends_on_titles = [s.title];
+                }
+              }
+            }
+
+            // 2) Wire dependencies using GitHub Issue Dependencies API. :contentReference[oaicite:4]{index=4}
+            async function addBlockedBy(laterNumber, blockerId) {
+              try {
+                await github.request('POST /repos/{owner}/{repo}/issues/{issue_number}/dependencies/blocked_by', {
+                  owner, repo, issue_number: laterNumber, issue_id: blockerId
+                });
+              } catch (e) {
+                core.info(`dep add failed: ${e.message}`);
+              }
+            }
+
+            // Helper to map titles to created issues
+            function findByTitle(t) { return byTitle.get(String(t||'').toLowerCase()); }
+
+            // For each story → add depends_on
+            for (const s of (plan.stories || [])) {
+              const later = findByTitle(s.title);
+              for (const t of (s.depends_on_titles || [])) {
+                const blocker = findByTitle(t);
+                if (later && blocker) await addBlockedBy(later.number, blocker.id);
+              }
+              // For each sub-issue
+              for (const sub of (s.sub_issues || [])) {
+                const later = findByTitle(sub.title);
+                for (const t of (sub.depends_on_titles || [])) {
+                  const blocker = findByTitle(t);
+                  if (later && blocker) await addBlockedBy(later.number, blocker.id);
+                }
+              }
+            }
+
+            // 3) Auto-assign the first UNBLOCKED issue to github-copilot to start coding. :contentReference[oaicite:5]{index=5}
+            // We pick the first created item that has no open blockers.
+            async function listBlockers(num) {
+              const { data } = await github.request('GET /repos/{owner}/{repo}/issues/{issue_number}/dependencies/blocked_by', {
+                owner, repo, issue_number: num
+              });
+              return (data || []).filter(i => i.state === 'open').map(i => i.number);
+            }
+
+            for (const it of created) {
+              const blockers = await listBlockers(it.number);
+              if (blockers.length === 0) {
+                try {
+                  await github.rest.issues.addAssignees({ owner, repo, issue_number: it.number, assignees: ['github-copilot'] });
+                  await github.rest.issues.createComment({ owner, repo, issue_number: it.number, body: "🤖 Assigned to @github-copilot to start." });
+                  break;
+                } catch (e) {
+                  core.info(`Assign to copilot failed (is Copilot enabled here?): ${e.message}`);
+                }
+              }
+            }
+
+            // 4) Optionally add the EPIC itself to your Project board (if PROJECT_URL is set) using the official action. :contentReference[oaicite:6]{index=6}
+            core.setOutput('done', 'ok');
+
+      - name: (Optional) Add epic to Project
+        if: ${{ env.PROJECT_URL != '' }}
+        uses: actions/add-to-project@v1.0.2
+        with:
+          project-url: ${{ env.PROJECT_URL }}
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+        # NOTE: For org/user Projects, this action needs a PAT with Projects write perms. :contentReference[oaicite:7]{index=7}
