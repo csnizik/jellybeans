@@ -1,0 +1,41 @@
+# .github/workflows/copilot-setup-steps.yml
+name: Copilot Setup Steps
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/copilot-setup-steps.yml
+  pull_request:
+    paths:
+      - .github/workflows/copilot-setup-steps.yml
+
+permissions:
+  contents: read
+
+jobs:
+  copilot-setup-steps:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP 8.3 + tools
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring, intl, gd, xml, pdo_mysql, opcache
+          coverage: none
+          tools: composer, cs2pr
+
+      - name: Composer cache
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: Composer install (no dev if you prefer)
+        run: |
+          composer install --prefer-dist --no-progress --no-interaction
+
+      - name: Verify Drush
+        run: |
+          ./vendor/bin/drush --version || true
