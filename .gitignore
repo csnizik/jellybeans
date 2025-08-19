@@ -70,3 +70,11 @@ node_modules/
 .ddev/.claude.json
 
 var/phpstan/
+
+config/sync_*/
+
+# Claude Code cache files
+.ddev/.claude/projects/
+.ddev/.claude/shell-snapshots/
+.ddev/.claude/todos/
+.claude/settings.local.json
